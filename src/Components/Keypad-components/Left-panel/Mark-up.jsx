@@ -1,7 +1,7 @@
 
-const MU = () => {
+const MU = ({handleInput}) => {
     return (
-    <button>MU</button>
+    <button id="MU"onClick={handleInput} >MU</button>
     )
 }
 export default MU;

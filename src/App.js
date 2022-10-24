@@ -79,9 +79,17 @@ function App() {
       const numberInput = event.target.id;
       handleNumberInput(numberInput);
     }
+    if(iconArr.includes(event.target.id)){
+      const opperatorInput = event.target.id;
+      handleOpperatorInput(opperatorInput);
+    }
   }
-  const handleNumberInput = (numberInput) => {
-    handleNewNum(numberInput)
+  const handleOpperatorInput = (opperator) => {
+    minorCalc(minorSum)
+    handleNewOpperator(opperator);
+  }
+  const handleNumberInput = (number) => {
+    handleNewNum(number)
   }
   const handleNewNum = (input) => {
       setMinorSum((currentSum) => {
