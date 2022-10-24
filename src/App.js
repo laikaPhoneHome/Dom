@@ -14,36 +14,66 @@ function App() {
     let x = +newNum;
 
     if(minorSum.includes(PLUS)){
-        const newDefault = defaultNum + x;
-        const newSum = [newDefault, PLUS, '0']
+      const newDefault = defaultNum + x;
+      const newSum = [newDefault, PLUS, '0']
+
+      handleDisplayNum(newDefault);
+
+      setMinorSum(() => {
         return newSum;
+      })
     }
     if(minorSum.includes(MINS)){
-        const newDefault = defaultNum - x;
-        const newSum = [newDefault, PLUS, '0']
+      const newDefault = defaultNum - x;
+      const newSum = [newDefault, PLUS, '0']
+
+      handleDisplayNum(newDefault);
+
+      setMinorSum(() => {
         return newSum;
+      })
     }
     if(minorSum.includes(TIMS)){
-        const newDefault = defaultNum * x;
-        const newSum = [newDefault, PLUS, '0']
+      const newDefault = defaultNum * x;
+      const newSum = [newDefault, PLUS, '0']
+
+      handleDisplayNum(newDefault);
+
+      setMinorSum(() => {
         return newSum;
+      })
     }
     if(minorSum.includes(DIVI)){
-        const newDefault = defaultNum / x;
-        const newSum = [newDefault, PLUS, '0']
+      const newDefault = defaultNum / x;
+      const newSum = [newDefault, PLUS, '0']
+
+      handleDisplayNum(newDefault);
+
+      setMinorSum(() => {
         return newSum;
+      })
     }
     if(minorSum.includes(MRKU)){
-        x = newNum / 100 + 1;
-        const newDefault = defaultNum * x;
-        const newSum = [newDefault, PLUS, '0']
+      x = newNum / 100 + 1;
+      const newDefault = defaultNum * x;
+      const newSum = [newDefault, PLUS, '0']
+
+      handleDisplayNum(newDefault);
+
+      setMinorSum(() => {
         return newSum;
+      })
     }
     if(minorSum.includes(PCNT)){
-        x = newNum / 100;
-        const newDefault = defaultNum * x;
-        const newSum = [newDefault, PLUS, '0']
+      x = defaultNum / 100;
+      const newDefault = newNum * x;
+      const newSum = [newDefault, PLUS, '0']
+
+      handleDisplayNum(newDefault);
+
+      setMinorSum(() => {
         return newSum;
+      })
     }
 }
 
@@ -85,7 +115,7 @@ function App() {
     }
   }
   const handleOpperatorInput = (opperator) => {
-    minorCalc(minorSum)
+    minorCalc(minorSum);
     handleNewOpperator(opperator);
   }
   const handleNumberInput = (number) => {
@@ -105,6 +135,14 @@ function App() {
       }
     })
   }
+  const handleNewOpperator = (opperator) => {
+    setMinorSum((currentSum) => {
+      const newSum = [...currentSum];
+      newSum[1] = opperator;
+      return newSum;
+    })
+  }
+
   const handleDisplayNum = (input) => {
     setDisplayNum((currentDisplayNum) => {
       return currentDisplayNum = input;
