@@ -102,6 +102,7 @@ function App() {
 
   let [displayNum, setDisplayNum] = useState(0);
   const [minorSum, setMinorSum] = useState([0, '+','0']);
+  const [majorSum, setMajorSum] = useState([[],[]]);
   const [defaultNum, opperator, newNum] = minorSum;
 
   const handleInput = (event) => {
@@ -113,6 +114,18 @@ function App() {
       const opperatorInput = event.target.id;
       handleOpperatorInput(opperatorInput);
     }
+    if(event.target.id === '='){
+      handleEqualsInput(minorSum);
+    }
+  }
+  const handleEqualsInput = (minorSum) => {
+    const minorSumCopy = [...minorSum];
+    setMajorSum((currentMajorSum) => {
+      const newMajorSum = [...currentMajorSum];
+      newMajorSum[0].push(minorSumCopy)
+      return newMajorSum;
+    })
+    minorCalc(minorSum);
   }
   const handleOpperatorInput = (opperator) => {
     minorCalc(minorSum);
