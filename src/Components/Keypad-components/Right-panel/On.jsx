@@ -1,8 +1,8 @@
 
-const ON = () => {
+const ON = ({handleInput}) => {
     return (
     <section>
-        <button>ON/AC</button>
+        <button id="ON" onClick={handleInput}>ON/AC</button>
     </section>
     )
 }

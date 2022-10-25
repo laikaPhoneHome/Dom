@@ -5,6 +5,14 @@ import Keypad from './Components/Keypad-components/Keypad';
 import DevDisplay from './Components/Dev-Display';
 
 function App() {
+  const handleON = () => {
+    setMinorSum(((currentSum)=> {
+      let newSum = [...currentSum ]
+      newSum = [0,'+','0']
+      handleDisplayNum(newSum[0])
+      return newSum;
+    }));
+  }
   
   const minorCalc = (minorSum) => {
     console.log('minorsum', minorSum)
@@ -117,6 +125,9 @@ function App() {
     }
     if(event.target.id === '='){
       minorCalc(minorSum);
+    }
+    if(event.target.id === 'ON'){
+      handleON()
     }
   }
   const handleEqualsInput = (minorSum) => {
