@@ -7,6 +7,7 @@ import DevDisplay from './Components/Dev-Display';
 function App() {
   
   const minorCalc = (minorSum) => {
+    console.log('minorsum', minorSum)
     const iconArr = ['+','-', 'x', '÷', 'MU', '%'];
     const [PLUS, MINS, TIMS, DIVI, MRKU, PCNT] = iconArr
 
@@ -115,7 +116,7 @@ function App() {
       handleOpperatorInput(opperatorInput);
     }
     if(event.target.id === '='){
-      handleEqualsInput(minorSum);
+      minorCalc(minorSum);
     }
   }
   const handleEqualsInput = (minorSum) => {

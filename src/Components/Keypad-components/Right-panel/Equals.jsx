@@ -1,7 +1,7 @@
 
-const Equals = () => {
+const Equals = ({handleInput}) => {
     return (
-    <button>=</button>
+    <button id="=" onClick={handleInput}>=</button>
     )
 }
 export default Equals;

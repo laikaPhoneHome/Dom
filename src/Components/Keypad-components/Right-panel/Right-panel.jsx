@@ -8,7 +8,7 @@ const Rightpanel = ({handleInput}) => {
         <section className="right-buttons">
             <ON />
             <Opporators handleInput={handleInput}/>
-            <Equals />
+            <Equals handleInput={handleInput}/>
             <Memory />
         </section>
     )
