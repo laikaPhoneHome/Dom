@@ -8,7 +8,7 @@ const Leftpanel =({handleInput}) => {
         <section className='left-buttons'>
             <MU handleInput={handleInput}/>
             <Ambivalence />
-            <SQR />
+            <SQR handleInput={handleInput}/>
             <CE />
         </section>
     )

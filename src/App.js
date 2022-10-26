@@ -77,6 +77,15 @@ function App() {
       })
     }
 }
+  const handleSquareRoot = () => {
+    let newMinorSum = [...minorSum];
+    console.log(newMinorSum.indexOf(displayNum));
+    const sqrNumi = newMinorSum.indexOf(displayNum);
+    const sqrNum = Math.sqrt(newMinorSum[sqrNumi])
+    newMinorSum[sqrNumi] = sqrNum;
+    handleDisplayNum(newMinorSum[sqrNumi])
+    setMinorSum(newMinorSum)
+  }
 
   const iconArr = ['+','-', 'x', '÷', 'MU','%', '='];
 
@@ -117,6 +126,9 @@ function App() {
     }
     if(event.target.id === '='){
       minorCalc(minorSum);
+    }
+    if(event.target.id === 'SQR'){
+      handleSquareRoot();
     }
   }
   const handleEqualsInput = (minorSum) => {
