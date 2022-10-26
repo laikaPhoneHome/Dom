@@ -135,7 +135,7 @@ function App() {
     if(event.target.id === '='){
       minorCalc(minorSum);
     }
-    if(event.target.id === 'SQR'){
+    if(event.target.id === 'SQRT'){
       handleSquareRoot();
     }
     if(event.target.id === 'ON'){

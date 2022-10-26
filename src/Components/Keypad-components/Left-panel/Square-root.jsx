@@ -1,7 +1,7 @@
 
-const SQR = ({handleInput}) => {
+const SQRT = ({handleInput}) => {
     return (
-        <button id="SQR" onClick={handleInput}>√</button>
+        <button id="SQRT" onClick={handleInput}>√</button>
     )
 }
-export default SQR;
+export default SQRT;
