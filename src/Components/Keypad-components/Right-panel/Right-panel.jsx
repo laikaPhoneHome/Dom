@@ -6,7 +6,7 @@ import Opporators from "./Opperators"
 const Rightpanel = ({handleInput}) => {
     return (
         <section className="right-buttons">
-            <ON />
+            <ON handleInput={handleInput}/>
             <Opporators handleInput={handleInput}/>
             <Equals handleInput={handleInput}/>
             <Memory />
