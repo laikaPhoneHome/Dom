@@ -1,7 +1,7 @@
 
-const Ambivalence = () => {
+const Ambivalence = ({handleInput}) => {
     return (
-    <button>+/-</button>
+    <button value="+/-" onClick={handleInput}>+/-</button>
     )
 }
 export default Ambivalence;

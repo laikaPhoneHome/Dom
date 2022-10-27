@@ -89,10 +89,10 @@ function App() {
     let newMinorSum = [...minorSum];
     console.log(newMinorSum.indexOf(displayNum));
     const sqrNumi = newMinorSum.indexOf(displayNum);
-    const sqrNum = Math.sqrt(newMinorSum[sqrNumi])
+    const sqrNum = Math.sqrt(newMinorSum[sqrNumi]);
     newMinorSum[sqrNumi] = sqrNum;
-    handleDisplayNum(newMinorSum[sqrNumi])
-    setMinorSum(newMinorSum)
+    handleDisplayNum(newMinorSum[sqrNumi]);
+    setMinorSum(newMinorSum);
   }
 
   const iconArr = ['+','-', 'x', '÷', 'MU','%', '='];
