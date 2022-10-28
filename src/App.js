@@ -157,7 +157,6 @@ function App() {
     const negNumi = newMinorSum.indexOf(displayNum);
     let negNum = newMinorSum[negNumi];
     const strNum = negNum+''
-    console.log(strNum)
     let negArr = strNum.split('');
 
     negArr[0] === '-' ? negArr.shift() 
@@ -167,8 +166,7 @@ function App() {
 
     negNumi > 1 ? newMinorSum[negNumi] = negStr 
     : newMinorSum[negNumi] = +negStr;
-    
-
+  
     setMinorSum(newMinorSum);
     handleDisplayNum(newMinorSum[negNumi]);
   }
