@@ -156,15 +156,21 @@ function App() {
     const newMinorSum = [...minorSum];
     const negNumi = newMinorSum.indexOf(displayNum);
     let negNum = newMinorSum[negNumi];
-    const strNum = String(negNum);
-    const negArr = negNum.split('');
-    negArr.unshift('-');
+    const strNum = negNum+''
+    console.log(strNum)
+    let negArr = strNum.split('');
+
+    negArr[0] === '-' ? negArr.shift() 
+    : negArr.unshift('-')
+
     const negStr = negArr.join('');
 
     negNumi > 1 ? newMinorSum[negNumi] = negStr 
     : newMinorSum[negNumi] = +negStr;
+    
+
     setMinorSum(newMinorSum);
-    handleDisplayNum(negNum);
+    handleDisplayNum(newMinorSum[negNumi]);
   }
   const handleOpperatorInput = (opperator) => {
     minorCalc(minorSum);
