@@ -96,7 +96,6 @@ function App() {
   }
 
   const iconArr = ['+','-', 'x', '÷', 'MU','%', '='];
-
   const [icons, newIcons] = 
   useState(
   <section className="display-icons">
@@ -107,7 +106,6 @@ function App() {
   );
 
   const notationArr = ['N', 'GT', 'M', 'E'];
-
   const [notations, newNotations] = 
   useState(
       <section className="notation-icons">
@@ -141,6 +139,9 @@ function App() {
     if(event.target.id === 'ON'){
       handleON()
     }
+    if(event.target.id === '+/-'){
+      handleAmbivalence();
+    }
   }
   const handleEqualsInput = (minorSum) => {
     const minorSumCopy = [...minorSum];
@@ -150,6 +151,20 @@ function App() {
       return newMajorSum;
     })
     minorCalc(minorSum);
+  }
+  const handleAmbivalence = () => {
+    const newMinorSum = [...minorSum];
+    const negNumi = newMinorSum.indexOf(displayNum);
+    let negNum = newMinorSum[negNumi];
+    const strNum = String(negNum);
+    const negArr = negNum.split('');
+    negArr.unshift('-');
+    const negStr = negArr.join('');
+
+    negNumi > 1 ? newMinorSum[negNumi] = negStr 
+    : newMinorSum[negNumi] = +negStr;
+    setMinorSum(newMinorSum);
+    handleDisplayNum(negNum);
   }
   const handleOpperatorInput = (opperator) => {
     minorCalc(minorSum);
@@ -179,7 +194,6 @@ function App() {
       return newSum;
     })
   }
-
   const handleDisplayNum = (input) => {
     setDisplayNum((currentDisplayNum) => {
       return currentDisplayNum = input;
