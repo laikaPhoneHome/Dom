@@ -115,7 +115,6 @@ function App() {
       </section>
   );
 
-
   let [displayNum, setDisplayNum] = useState(0);
   const [minorSum, setMinorSum] = useState([0, '+','0']);
   const [majorSum, setMajorSum] = useState([[],[]]);
@@ -141,6 +140,9 @@ function App() {
     }
     if(event.target.id === '+/-'){
       handleAmbivalence();
+    }
+    if(event.target.id === '.'){
+      handleNonInteger();
     }
   }
   const handleEqualsInput = (minorSum) => {
@@ -169,6 +171,30 @@ function App() {
   
     setMinorSum(newMinorSum);
     handleDisplayNum(newMinorSum[negNumi]);
+  }
+  const handleNonInteger = () => {
+    const newMinorSum = [...minorSum];
+
+    let nonIntegeri = newMinorSum.indexOf(displayNum);
+    if(minorSum[0] == minorSum[2]) nonIntegeri = 2;
+    let nonInteger = newMinorSum[nonIntegeri];
+
+    const nonIntegerStr = nonInteger+'';
+    const nonIntegerArr = nonIntegerStr.split('')
+
+    if(nonIntegerArr.includes('.') && nonIntegerArr[nonIntegerArr.length-1] !== '.'){
+      nonIntegerArr.splice(nonIntegerArr.indexOf('.'), 1);
+    }
+
+    nonIntegerArr[nonInteger.length-1] === '.' ?
+    nonIntegerArr.pop() : 
+    nonIntegerArr.push('.');
+
+    nonInteger = nonIntegerArr.join('');
+    if(nonIntegeri > 2) nonInteger = +nonInteger;
+    newMinorSum[nonIntegeri] = nonInteger;
+    setMinorSum(newMinorSum)
+    handleDisplayNum(nonInteger)
   }
   const handleOpperatorInput = (opperator) => {
     minorCalc(minorSum);
