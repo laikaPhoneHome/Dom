@@ -15,7 +15,6 @@ function App() {
   }
   
   const minorCalc = (minorSum) => {
-    console.log('minorsum', minorSum)
     const iconArr = ['+','-', 'x', '÷', 'MU', '%'];
     const [PLUS, MINS, TIMS, DIVI, MRKU, PCNT] = iconArr
 
