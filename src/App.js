@@ -196,6 +196,8 @@ function App() {
     handleDisplayNum(nonInteger)
   }
   const handleOpperatorInput = (opperator) => {
+    if(displayNum == defaultNum && newNum === '0') handleNewOpperator(opperator)
+    else
     minorCalc(minorSum);
     handleNewOpperator(opperator);
   }
