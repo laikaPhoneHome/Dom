@@ -6,12 +6,17 @@ import DevDisplay from './Components/Dev-Display';
 
 function App() {
   const handleON = () => {
-    setMinorSum(((currentSum)=> {
-      let newSum = [...currentSum ]
-      newSum = [0,'+','0']
+    setMinorSum(((currentSum) => {
+      let newSum = [...currentSum]
+      newSum = [0,'','']
       handleDisplayNum(newSum[0])
       return newSum;
     }));
+    setMajorSum((currentMajorSum)=> {
+      let newMajorSum = [...majorSum];
+      newMajorSum = [[],[]];
+      return newMajorSum;
+    })
   }
   
   const minorCalc = (minorSum) => {
@@ -20,10 +25,20 @@ function App() {
 
     const [defaultNum, opperator, newNum] = minorSum;
     let x = +newNum;
+    if(minorSum.includes('')){
+      if(newNum === ''){
 
+      }else{
+        const newDefault = +newNum;
+        const newSum = [newDefault, '', '']
+        handleDisplayNum(newDefault);
+        setMinorSum(newSum)
+      }
+      
+    }
     if(minorSum.includes(PLUS)){
       const newDefault = defaultNum + x;
-      const newSum = [newDefault, PLUS, '0']
+      const newSum = [newDefault, '', '']
 
       handleDisplayNum(newDefault);
 
@@ -33,7 +48,7 @@ function App() {
     }
     if(minorSum.includes(MINS)){
       const newDefault = defaultNum - x;
-      const newSum = [newDefault, PLUS, '0']
+      const newSum = [newDefault, '', '']
 
       handleDisplayNum(newDefault);
 
@@ -43,7 +58,7 @@ function App() {
     }
     if(minorSum.includes(TIMS)){
       const newDefault = defaultNum * x;
-      const newSum = [newDefault, PLUS, '0']
+      const newSum = [newDefault, '', '']
 
       handleDisplayNum(newDefault);
 
@@ -53,7 +68,7 @@ function App() {
     }
     if(minorSum.includes(DIVI)){
       const newDefault = defaultNum / x;
-      const newSum = [newDefault, PLUS, '0']
+      const newSum = [newDefault, '', '']
 
       handleDisplayNum(newDefault);
 
@@ -64,7 +79,7 @@ function App() {
     if(minorSum.includes(MRKU)){
       x = newNum / 100 + 1;
       const newDefault = defaultNum * x;
-      const newSum = [newDefault, PLUS, '0']
+      const newSum = [newDefault, '', '']
 
       handleDisplayNum(newDefault);
 
@@ -75,7 +90,7 @@ function App() {
     if(minorSum.includes(PCNT)){
       x = defaultNum / 100;
       const newDefault = newNum * x;
-      const newSum = [newDefault, PLUS, '0']
+      const newSum = [newDefault, '', '']
 
       handleDisplayNum(newDefault);
 
@@ -115,21 +130,21 @@ function App() {
   );
 
   let [displayNum, setDisplayNum] = useState(0);
-  const [minorSum, setMinorSum] = useState([0, '+','0']);
+  const [minorSum, setMinorSum] = useState([0, '','']);
   const [majorSum, setMajorSum] = useState([[],[]]);
   const [defaultNum, opperator, newNum] = minorSum;
 
   const handleInput = (event) => {
     if(!isNaN(Number(event.target.id))){
       const numberInput = event.target.id;
-      handleNumberInput(numberInput);
+      handleNewNum(numberInput);
     }
     if(iconArr.includes(event.target.id)){
       const opperatorInput = event.target.id;
       handleOpperatorInput(opperatorInput);
     }
     if(event.target.id === '='){
-      minorCalc(minorSum);
+      handleEqualsInput(minorSum);
     }
     if(event.target.id === 'SQRT'){
       handleSquareRoot();
@@ -196,26 +211,19 @@ function App() {
     handleDisplayNum(nonInteger)
   }
   const handleOpperatorInput = (opperator) => {
-    if(displayNum == defaultNum && newNum === '0') handleNewOpperator(opperator)
-    else
-    minorCalc(minorSum);
-    handleNewOpperator(opperator);
-  }
-  const handleNumberInput = (number) => {
-    handleNewNum(number)
+    if(opperator === '=') minorCalc(minorSum)
+    else{
+      minorCalc(minorSum);
+      handleNewOpperator(opperator);
+    }
+    
   }
   const handleNewNum = (input) => {
       setMinorSum((currentSum) => {
       let newSum = [...currentSum];
-      if(currentSum[2] === '0'){
-        newSum[2] = input;
-        handleDisplayNum(newSum[2]);
-        return newSum;
-      } else {
         newSum[2] += input;
         handleDisplayNum(newSum[2]);
         return newSum;
-      }
     })
   }
   const handleNewOpperator = (opperator) => {

@@ -1,59 +1,23 @@
-.App{
+.right-buttons{
+  border: solid red;
+  height: 20em;
+  width: 15em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.display{
-  display: flex;
-  justify-content: center;
-  border: medium solid black;
+  flex-wrap: wrap;
   flex-direction: row;
-}
-.icons{
-  /* border: medium solid gold; */
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-}
-.notations{
-  /* border: medium solid aqua; */
-  display: flex;
-}
-
-
-
-.keypad{
-  justify-content: center;
-  display:flex;
-  flex-direction: row;
-  min-width: 100%;
+  justify-content: space-around;
 }
 .number-grid{
-  border: medium solid red;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(3, 100px);
-}
-.right-buttons{
-  border: medium solid green;
+  border: solid red;
+  height: 20em;
+  width: 15em;
   display: flex;
-  min-height: 50vh;
-  flex-flow: column wrap;
-  align-content: stretch;
-  justify-content: space-evenly;
-}
-.left-buttons{
-  display: flex;
-  min-height: 50vh;
-  border: medium solid pink;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
 }
 .standard-button{
-  padding: 5vw x 5vw;
+  height: 5em;
+  width: 5em;
+  margin: 0.42em;
 }

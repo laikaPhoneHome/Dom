@@ -1,9 +1,9 @@
 
 const DevDisplay = ({DevDisplay}) => {
-    console.log(DevDisplay)
+    const [defautNum, opperator, newNum] = DevDisplay;
     return(
         <section>
-            <p>{DevDisplay}</p>
+            <p>{defautNum}</p><p>{opperator}</p><p>{newNum}</p>
         </section>
     )
 }
